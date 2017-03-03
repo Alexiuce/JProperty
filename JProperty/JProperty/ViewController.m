@@ -12,10 +12,8 @@
 @interface ViewController ()<NSTextViewDelegate>
 
 @property (unsafe_unretained) IBOutlet NSTextView *jsonTextView;
-
 @property (unsafe_unretained) IBOutlet NSTextView *propertyTextView;
 @property (weak) IBOutlet NSButton *jsonButton;
-@property (weak) IBOutlet NSButton *propertyButton;
 @property (assign, nonatomic) BOOL onceTime;
 
 @end
@@ -30,7 +28,6 @@
     _jsonTextView.automaticQuoteSubstitutionEnabled = NO;
     _propertyTextView.automaticQuoteSubstitutionEnabled = NO;
     _jsonTextView.delegate = self;
-    _propertyButton.enabled = _propertyTextView.string.length;
     _jsonTextView.font = [NSFont systemFontOfSize:18];
     _propertyTextView.font = _jsonTextView.font;
 }
@@ -45,8 +42,8 @@
 #pragma mark - NSTextViewDelegate
 - (void)textDidChange:(NSNotification *)notification{
     NSTextView *textView = notification.object;
-    if (textView == _jsonTextView) {_jsonButton.enabled = textView.string.length;return;}
-    _propertyButton.enabled = textView.string.length;
+    if (textView != _jsonTextView) {return;}
+    _jsonButton.enabled = textView.string.length;
 }
 #pragma mark - 自定义方法
 - (void)checkJsonText:(NSString *)json{
