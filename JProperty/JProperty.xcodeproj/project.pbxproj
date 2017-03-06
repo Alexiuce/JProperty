@@ -16,6 +16,7 @@
 		F20F60A71E67CF3B00567219 /* DJBezierPath.m in Sources */ = {isa = PBXBuildFile; fileRef = F20F60A11E67CF3B00567219 /* DJBezierPath.m */; };
 		F20F60A81E67CF3B00567219 /* DJProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = F20F60A31E67CF3B00567219 /* DJProgressHUD.m */; };
 		F20F60A91E67CF3B00567219 /* DJProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = F20F60A51E67CF3B00567219 /* DJProgressIndicator.m */; };
+		F22B6B631E6D424E001EB35C /* WindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = F22B6B621E6D424E001EB35C /* WindowController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,8 @@
 		F20F60A31E67CF3B00567219 /* DJProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJProgressHUD.m; sourceTree = "<group>"; };
 		F20F60A41E67CF3B00567219 /* DJProgressIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJProgressIndicator.h; sourceTree = "<group>"; };
 		F20F60A51E67CF3B00567219 /* DJProgressIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJProgressIndicator.m; sourceTree = "<group>"; };
+		F22B6B611E6D424E001EB35C /* WindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowController.h; sourceTree = "<group>"; };
+		F22B6B621E6D424E001EB35C /* WindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WindowController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +74,8 @@
 				F20F609D1E67CF3B00567219 /* DJProgressHUD */,
 				F20F60891E67A4BF00567219 /* AppDelegate.h */,
 				F20F608A1E67A4BF00567219 /* AppDelegate.m */,
+				F22B6B611E6D424E001EB35C /* WindowController.h */,
+				F22B6B621E6D424E001EB35C /* WindowController.m */,
 				F20F608F1E67A4BF00567219 /* ViewController.h */,
 				F20F60901E67A4BF00567219 /* ViewController.m */,
 				F20F60921E67A4BF00567219 /* Assets.xcassets */,
@@ -176,6 +181,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F20F60A71E67CF3B00567219 /* DJBezierPath.m in Sources */,
+				F22B6B631E6D424E001EB35C /* WindowController.m in Sources */,
 				F20F60A91E67CF3B00567219 /* DJProgressIndicator.m in Sources */,
 				F20F60A61E67CF3B00567219 /* DJActivityIndicator.m in Sources */,
 				F20F60911E67A4BF00567219 /* ViewController.m in Sources */,

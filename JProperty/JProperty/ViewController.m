@@ -16,6 +16,8 @@
 @property (weak) IBOutlet NSButton *jsonButton;
 @property (assign, nonatomic) BOOL onceTime;
 
+
+
 @end
 
 
@@ -30,6 +32,7 @@
     _jsonTextView.delegate = self;
     _jsonTextView.font = [NSFont systemFontOfSize:18];
     _propertyTextView.font = _jsonTextView.font;
+
 }
 #pragma mark - JSON 转换Property 事件
 - (IBAction)jsonClick:(NSButton *)sender {

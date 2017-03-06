@@ -25,7 +25,6 @@
 #pragma mark - 关闭窗口
 - (void)closeWindow{
     /** 关闭窗口时退出应用 */
-    [[NSApplication sharedApplication] terminate:self];
+//    [[NSApplication sharedApplication] terminate:self];
 }
-
 @end
