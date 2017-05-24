@@ -8,15 +8,15 @@
 
 #import "ViewController.h"
 #import "DJProgressHUD.h"
+#import "NSString+XCDictionary.h"
 
 @interface ViewController ()<NSTextViewDelegate>
 
 @property (unsafe_unretained) IBOutlet NSTextView *jsonTextView;
 @property (unsafe_unretained) IBOutlet NSTextView *propertyTextView;
 @property (weak) IBOutlet NSButton *jsonButton;
+
 @property (assign, nonatomic) BOOL onceTime;
-
-
 
 @end
 
@@ -27,21 +27,32 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _jsonButton.enabled =  _jsonTextView.string.length;
+    /** 这个很重要,不然竖直的英文引号会自动变为中文的弯引号,导致字符串解析错误 */
     _jsonTextView.automaticQuoteSubstitutionEnabled = NO;
     _propertyTextView.automaticQuoteSubstitutionEnabled = NO;
     _jsonTextView.delegate = self;
     _jsonTextView.font = [NSFont systemFontOfSize:18];
     _propertyTextView.font = _jsonTextView.font;
-
 }
 #pragma mark - JSON 转换Property 事件
 - (IBAction)jsonClick:(NSButton *)sender {
     [self checkJsonText:_jsonTextView.string];
 }
-#pragma mark - Properyt 转换 JSON 事件
-- (IBAction)propertyClick:(NSButton *)sender {
-
+#pragma mark - Improt Plist
+- (IBAction)importPlist:(NSButton *)sender {
+    NSOpenPanel* panel = [NSOpenPanel openPanel];
+    panel.allowsMultipleSelection = NO;     // 禁止多选
+    panel.allowedFileTypes = @[@"plist"];   // 设置文件类型
+    panel.directoryURL = [NSURL URLWithString:NSHomeDirectory()];           // 设置默认打开路径
+    [panel beginSheetModalForWindow:self.view.window completionHandler:^(NSInteger result) {
+        if (result != NSModalResponseOK) {return ;}
+        NSURL *element = panel.URLs.firstObject;
+        NSDictionary *plistDict = [NSDictionary dictionaryWithContentsOfURL:element];
+        _propertyTextView.string = plistDict == nil ? @"@property (nonatomic, strong) NSArray *plistArray" : [NSString xc_propertyStingInDictioary:plistDict];
+    }];
 }
+
+
 #pragma mark - NSTextViewDelegate
 - (void)textDidChange:(NSNotification *)notification{
     NSTextView *textView = notification.object;
@@ -83,25 +94,7 @@
         }
         return;
     }
-    // 遍历: 根据值类型来生成属性文本
-    __block NSMutableString *propertyString = [NSMutableString string];
-    [jsonDict enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
-        NSString *text;
-        if ([obj isKindOfClass:[NSNumber class]]) {
-            NSString *dataTyep =  [[(NSNumber *)obj stringValue] containsString:@"."]? @"CGFloat" : @"NSInteger";
-            text =  [NSString stringWithFormat:@"@property (nonatomic, assign) %@ %@",key,dataTyep];
-        }else if ([obj isKindOfClass:[NSString class]]){
-            text = [NSString stringWithFormat:@"@property (nonatomic, copy) NSString *%@",key];
-        }else if ([obj isKindOfClass:[NSArray class]]){
-            text = [NSString stringWithFormat:@"@property (nonatomic, strong) NSArray *%@",key];
-        }else if ([obj isKindOfClass:[NSDictionary class]]){
-             text = [NSString stringWithFormat:@"@property (nonatomic, strong) NSDictionary *%@",key];
-        }else if ([obj isKindOfClass:[NSNull class]]){
-            text = [NSString stringWithFormat:@"@property (nonatomic, strong) id %@",key];
-        }
-        [propertyString appendFormat:@"%@\n",text];
-    }];
-    _propertyTextView.string = propertyString;
+       _propertyTextView.string = [NSString xc_propertyStingInDictioary:jsonDict];
     _onceTime = 0;
 }
 /** 清空内容 */

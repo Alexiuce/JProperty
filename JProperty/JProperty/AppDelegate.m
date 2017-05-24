@@ -16,8 +16,8 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(closeWindow) name:NSWindowWillCloseNotification object:nil];
+    
 }
-
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
     // Insert code here to tear down your application
@@ -25,6 +25,7 @@
 #pragma mark - 关闭窗口
 - (void)closeWindow{
     /** 关闭窗口时退出应用 */
-//    [[NSApplication sharedApplication] terminate:self];
+    [[NSApplication sharedApplication] terminate:self];
 }
+
 @end
