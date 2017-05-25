@@ -17,6 +17,7 @@
 		F20F60A81E67CF3B00567219 /* DJProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = F20F60A31E67CF3B00567219 /* DJProgressHUD.m */; };
 		F20F60A91E67CF3B00567219 /* DJProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = F20F60A51E67CF3B00567219 /* DJProgressIndicator.m */; };
 		F298945B1ED5243900324736 /* NSString+XCDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = F298945A1ED5243900324736 /* NSString+XCDictionary.m */; };
+		F298945D1ED6616500324736 /* Property List.plist in Resources */ = {isa = PBXBuildFile; fileRef = F298945C1ED6616500324736 /* Property List.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		F20F60A51E67CF3B00567219 /* DJProgressIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJProgressIndicator.m; sourceTree = "<group>"; };
 		F29894591ED5243900324736 /* NSString+XCDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+XCDictionary.h"; sourceTree = "<group>"; };
 		F298945A1ED5243900324736 /* NSString+XCDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+XCDictionary.m"; sourceTree = "<group>"; };
+		F298945C1ED6616500324736 /* Property List.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Property List.plist"; path = "../../../../Desktop/Property List.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 				F20F608A1E67A4BF00567219 /* AppDelegate.m */,
 				F20F608F1E67A4BF00567219 /* ViewController.h */,
 				F20F60901E67A4BF00567219 /* ViewController.m */,
+				F298945C1ED6616500324736 /* Property List.plist */,
 				F20F60921E67A4BF00567219 /* Assets.xcassets */,
 				F20F60941E67A4BF00567219 /* Main.storyboard */,
 				F20F60971E67A4BF00567219 /* Info.plist */,
@@ -183,6 +186,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F298945D1ED6616500324736 /* Property List.plist in Resources */,
 				F20F60931E67A4BF00567219 /* Assets.xcassets in Resources */,
 				F20F60961E67A4BF00567219 /* Main.storyboard in Resources */,
 			);
