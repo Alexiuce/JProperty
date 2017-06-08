@@ -16,9 +16,11 @@
 		F20F60A71E67CF3B00567219 /* DJBezierPath.m in Sources */ = {isa = PBXBuildFile; fileRef = F20F60A11E67CF3B00567219 /* DJBezierPath.m */; };
 		F20F60A81E67CF3B00567219 /* DJProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = F20F60A31E67CF3B00567219 /* DJProgressHUD.m */; };
 		F20F60A91E67CF3B00567219 /* DJProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = F20F60A51E67CF3B00567219 /* DJProgressIndicator.m */; };
+		F298945B1ED5243900324736 /* NSString+XCDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = F298945A1ED5243900324736 /* NSString+XCDictionary.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F20402351ED271B90039FA82 /* JProperty.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JProperty.entitlements; sourceTree = "<group>"; };
 		F20F60861E67A4BF00567219 /* JProperty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JProperty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F20F60891E67A4BF00567219 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F20F608A1E67A4BF00567219 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -36,6 +38,8 @@
 		F20F60A31E67CF3B00567219 /* DJProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJProgressHUD.m; sourceTree = "<group>"; };
 		F20F60A41E67CF3B00567219 /* DJProgressIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJProgressIndicator.h; sourceTree = "<group>"; };
 		F20F60A51E67CF3B00567219 /* DJProgressIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJProgressIndicator.m; sourceTree = "<group>"; };
+		F29894591ED5243900324736 /* NSString+XCDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+XCDictionary.h"; sourceTree = "<group>"; };
+		F298945A1ED5243900324736 /* NSString+XCDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+XCDictionary.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +72,8 @@
 		F20F60881E67A4BF00567219 /* JProperty */ = {
 			isa = PBXGroup;
 			children = (
+				F20402351ED271B90039FA82 /* JProperty.entitlements */,
+				F29894581ED5242000324736 /* Catagory */,
 				F20F609D1E67CF3B00567219 /* DJProgressHUD */,
 				F20F60891E67A4BF00567219 /* AppDelegate.h */,
 				F20F608A1E67A4BF00567219 /* AppDelegate.m */,
@@ -104,6 +110,15 @@
 			path = DJProgressHUD;
 			sourceTree = "<group>";
 		};
+		F29894581ED5242000324736 /* Catagory */ = {
+			isa = PBXGroup;
+			children = (
+				F29894591ED5243900324736 /* NSString+XCDictionary.h */,
+				F298945A1ED5243900324736 /* NSString+XCDictionary.m */,
+			);
+			path = Catagory;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -137,6 +152,11 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = A95J37CEL7;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -181,6 +201,7 @@
 				F20F60911E67A4BF00567219 /* ViewController.m in Sources */,
 				F20F608E1E67A4BF00567219 /* main.m in Sources */,
 				F20F60A81E67CF3B00567219 /* DJProgressHUD.m in Sources */,
+				F298945B1ED5243900324736 /* NSString+XCDictionary.m in Sources */,
 				F20F608B1E67A4BF00567219 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -290,11 +311,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = JProperty/JProperty.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = A95J37CEL7;
 				INFOPLIST_FILE = JProperty/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.naitang.www.JProperty;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = com.joinf.looker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -303,11 +326,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = JProperty/JProperty.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = A95J37CEL7;
 				INFOPLIST_FILE = JProperty/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.naitang.www.JProperty;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = com.joinf.looker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

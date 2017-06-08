@@ -12,6 +12,7 @@
 
 @property (nonatomic, strong) NSWindow *mainWindow;
 
+
 @end
 
 @implementation AppDelegate
@@ -20,14 +21,11 @@
     self.mainWindow = NSApp.keyWindow;
 }
 
-
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
     // Insert code here to tear down your application
 }
 
-
 - (BOOL)applicationShouldHandleReopen:(NSApplication *)sender hasVisibleWindows:(BOOL)flag{
     return !(flag || ([self.mainWindow makeKeyAndOrderFront:self],0));
 }
-
 @end
