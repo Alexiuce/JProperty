@@ -10,22 +10,24 @@
 
 @interface AppDelegate ()
 
+@property (nonatomic, strong) NSWindow *mainWindow;
+
 @end
 
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(closeWindow) name:NSWindowWillCloseNotification object:nil];
+    self.mainWindow = NSApp.keyWindow;
 }
 
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
     // Insert code here to tear down your application
 }
-#pragma mark - 关闭窗口
-- (void)closeWindow{
-    /** 关闭窗口时退出应用 */
-    [[NSApplication sharedApplication] terminate:self];
+
+
+- (BOOL)applicationShouldHandleReopen:(NSApplication *)sender hasVisibleWindows:(BOOL)flag{
+    return !(flag || ([self.mainWindow makeKeyAndOrderFront:self],0));
 }
 
 @end
