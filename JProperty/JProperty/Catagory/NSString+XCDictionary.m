@@ -7,6 +7,7 @@
 //
 
 #import "NSString+XCDictionary.h"
+#import <AppKit/AppKit.h>
 
 @implementation NSString (XCDictionary)
 
@@ -31,6 +32,35 @@
     }];
     return [propertyString copy];
 
+}
+
++ (NSMutableAttributedString *)xc_propertyAttributedString:(NSString *)text{
+    NSError *error = nil;
+    NSMutableAttributedString *as = [[NSMutableAttributedString alloc]initWithString:text];
+    NSRegularExpression *regx = [NSRegularExpression regularExpressionWithPattern:@"@property" options:NSRegularExpressionCaseInsensitive error:&error];
+    [regx enumerateMatchesInString:text options:0 range:NSMakeRange(0, text.length) usingBlock:^(NSTextCheckingResult * _Nullable result, NSMatchingFlags flags, BOOL * _Nonnull stop) {
+        [as setAttributes:@{NSForegroundColorAttributeName: [NSColor redColor]}range: result.range];
+    }];
+    NSRegularExpression *regx1 = [NSRegularExpression regularExpressionWithPattern:@"nonatomic, strong" options:NSRegularExpressionCaseInsensitive error:&error];
+    [regx1 enumerateMatchesInString:text options:0 range:NSMakeRange(0, text.length) usingBlock:^(NSTextCheckingResult * _Nullable result, NSMatchingFlags flags, BOOL * _Nonnull stop) {
+        [as setAttributes:@{NSForegroundColorAttributeName: [NSColor purpleColor]}range: result.range];
+    }];
+    NSRegularExpression *regx2 = [NSRegularExpression regularExpressionWithPattern:@"nonatomic, copy" options:NSRegularExpressionCaseInsensitive error:&error];
+    [regx2 enumerateMatchesInString:text options:0 range:NSMakeRange(0, text.length) usingBlock:^(NSTextCheckingResult * _Nullable result, NSMatchingFlags flags, BOOL * _Nonnull stop) {
+        [as setAttributes:@{NSForegroundColorAttributeName: [NSColor purpleColor]}range: result.range];
+    }];
+    NSRegularExpression *regx21 = [NSRegularExpression regularExpressionWithPattern:@"nonatomic, assign" options:NSRegularExpressionCaseInsensitive error:&error];
+    [regx21 enumerateMatchesInString:text options:0 range:NSMakeRange(0, text.length) usingBlock:^(NSTextCheckingResult * _Nullable result, NSMatchingFlags flags, BOOL * _Nonnull stop) {
+        [as setAttributes:@{NSForegroundColorAttributeName: [NSColor purpleColor]}range: result.range];
+    }];
+    NSRegularExpression *regx3 = [NSRegularExpression regularExpressionWithPattern:@"NSArray | NSDictionary | NSString | CGFloat | NSInteger" options:NSRegularExpressionCaseInsensitive error:&error];
+    [regx3 enumerateMatchesInString:text options:0 range:NSMakeRange(0, text.length) usingBlock:^(NSTextCheckingResult * _Nullable result, NSMatchingFlags flags, BOOL * _Nonnull stop) {
+        [as setAttributes:@{NSForegroundColorAttributeName: [NSColor blueColor]}range: result.range];
+    }];
+ 
+    
+    [as addAttributes:@{NSFontNameAttribute : [NSFont systemFontOfSize:15]} range:NSMakeRange(0, as.length)];
+    return as;
 }
 
 @end

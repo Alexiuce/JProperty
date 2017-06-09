@@ -48,7 +48,8 @@
         if (result != NSModalResponseOK) {return ;}
         NSURL *element = panel.URLs.firstObject;
         NSDictionary *plistDict = [NSDictionary dictionaryWithContentsOfURL:element];
-        _propertyTextView.string = plistDict == nil ? @"@property (nonatomic, strong) NSArray *plistArray" : [NSString xc_propertyStingInDictioary:plistDict];
+        NSString *text =  plistDict == nil ? @"@property (nonatomic, strong) NSArray *plistArray" : [NSString xc_propertyStingInDictioary:plistDict];
+        [_propertyTextView.textStorage setAttributedString:[NSString xc_propertyAttributedString:text]];
     }];
 }
 
@@ -94,7 +95,13 @@
         }
         return;
     }
-       _propertyTextView.string = [NSString xc_propertyStingInDictioary:jsonDict];
+//       _propertyTextView.string
+    NSString *text = [NSString xc_propertyStingInDictioary:jsonDict];
+    
+    [_propertyTextView.textStorage setAttributedString:[NSString xc_propertyAttributedString:text]];
+    
+//    [_propertyTextView insertText:[NSString xc_propertyAttributedString:text]];
+//    _propertyTextView.attributedString = [NSString xc_propertyAttributedString:text];
     _onceTime = 0;
 }
 /** 清空内容 */

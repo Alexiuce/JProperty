@@ -11,5 +11,5 @@
 @interface NSString (XCDictionary)
 
 + (NSString *)xc_propertyStingInDictioary:(NSDictionary *)dict;
-
++ (NSMutableAttributedString *)xc_propertyAttributedString:(NSString *)text;
 @end
