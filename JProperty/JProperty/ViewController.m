@@ -10,6 +10,19 @@
 #import "DJProgressHUD.h"
 #import "NSString+XCDictionary.h"
 
+
+#ifndef kASAppleScriptSuite
+#define kASAppleScriptSuite 'ascr'
+#endif
+
+#ifndef kASSubroutineEvent
+#define kASSubroutineEvent 'psbr'
+#endif
+
+#ifndef keyASSubroutineName
+#define keyASSubroutineName 'snam'
+#endif
+
 @interface ViewController ()<NSTextViewDelegate>
 
 @property (unsafe_unretained) IBOutlet NSTextView *jsonTextView;
@@ -34,6 +47,8 @@
     _jsonTextView.font = [NSFont systemFontOfSize:18];
     _propertyTextView.font = _jsonTextView.font;
 }
+
+
 #pragma mark - JSON 转换Property 事件
 - (IBAction)jsonClick:(NSButton *)sender {
     [self checkJsonText:_jsonTextView.string];

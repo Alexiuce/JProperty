@@ -20,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D81C123D1EDAC7A3006511CB /* AppleScriptObjC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppleScriptObjC.framework; path = System/Library/Frameworks/AppleScriptObjC.framework; sourceTree = SDKROOT; };
 		F20402351ED271B90039FA82 /* JProperty.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JProperty.entitlements; sourceTree = "<group>"; };
 		F20F60861E67A4BF00567219 /* JProperty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JProperty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F20F60891E67A4BF00567219 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -53,11 +54,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D81C123C1EDAC7A3006511CB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D81C123D1EDAC7A3006511CB /* AppleScriptObjC.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F20F607D1E67A4BF00567219 = {
 			isa = PBXGroup;
 			children = (
 				F20F60881E67A4BF00567219 /* JProperty */,
 				F20F60871E67A4BF00567219 /* Products */,
+				D81C123C1EDAC7A3006511CB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
