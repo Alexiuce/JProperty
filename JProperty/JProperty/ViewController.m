@@ -11,17 +11,6 @@
 #import "NSString+XCDictionary.h"
 
 
-#ifndef kASAppleScriptSuite
-#define kASAppleScriptSuite 'ascr'
-#endif
-
-#ifndef kASSubroutineEvent
-#define kASSubroutineEvent 'psbr'
-#endif
-
-#ifndef keyASSubroutineName
-#define keyASSubroutineName 'snam'
-#endif
 
 @interface ViewController ()<NSTextViewDelegate>
 

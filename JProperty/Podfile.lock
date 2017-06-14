@@ -1,0 +1,23 @@
+PODS:
+  - ACEView (0.0.5)
+
+DEPENDENCIES:
+  - ACEView (from `https://github.com/mmattozzi/ACEView.git`)
+
+EXTERNAL SOURCES:
+  ACEView:
+    :git: https://github.com/mmattozzi/ACEView.git
+    :submodules: true
+
+CHECKOUT OPTIONS:
+  ACEView:
+    :commit: 9c08190194bb8e2f5d912c60ad8ee86b632101c2
+    :git: https://github.com/mmattozzi/ACEView.git
+    :submodules: true
+
+SPEC CHECKSUMS:
+  ACEView: 4c664c3511d3070783b7f06189491de00b518718
+
+PODFILE CHECKSUM: 47e9d527e3f476a5bcbc7b4d1680672836e01365
+
+COCOAPODS: 1.2.1

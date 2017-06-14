@@ -742,7 +742,7 @@ and also,you can select a plist file to be converted to property,</string>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" tag="100" translatesAutoresizingMaskIntoConstraints="NO" id="veN-Rz-aBD">
-                                            <rect key="frame" x="42" y="2" width="30" height="30"/>
+                                            <rect key="frame" x="40" y="10" width="16" height="16"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="delete" imagePosition="only" alignment="center" state="on" imageScaling="proportionallyDown" inset="2" id="zkN-Fo-GgA">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -753,7 +753,7 @@ and also,you can select a plist file to be converted to property,</string>
                                             </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uVC-pF-EZR">
-                                            <rect key="frame" x="110" y="2" width="30" height="30"/>
+                                            <rect key="frame" x="108" y="10" width="16" height="16"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="import" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="SgZ-5T-8mG">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -764,7 +764,7 @@ and also,you can select a plist file to be converted to property,</string>
                                             </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jzO-kB-WIw">
-                                            <rect key="frame" x="265" y="2" width="30" height="30"/>
+                                            <rect key="frame" x="263" y="10" width="16" height="16"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="xml" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="CyS-bI-8nV">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -772,7 +772,7 @@ and also,you can select a plist file to be converted to property,</string>
                                             </buttonCell>
                                         </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8qf-C8-Hsx">
-                                            <rect key="frame" x="188" y="2" width="30" height="30"/>
+                                            <rect key="frame" x="186" y="10" width="16" height="16"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="number" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="FaF-h2-WPx">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
