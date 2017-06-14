@@ -822,8 +822,12 @@ and also,you can select a plist file to be converted to property,</string>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="deleteButton" destination="veN-Rz-aBD" id="Nuv-G9-geZ"/>
                         <outlet property="displayView" destination="cCd-ba-N6w" id="ec7-2P-RqE"/>
                         <outlet property="jsonTextView" destination="chn-Le-2tY" id="OPp-WH-qtX"/>
+                        <outlet property="plistButton" destination="uVC-pF-EZR" id="9kg-3d-G3z"/>
+                        <outlet property="startButton" destination="4ni-hm-8hu" id="NZ3-lJ-k0z"/>
+                        <outlet property="xmlButton" destination="jzO-kB-WIw" id="WvL-Ge-ZPf"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

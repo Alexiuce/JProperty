@@ -18,6 +18,15 @@
 @property (unsafe_unretained) IBOutlet NSTextView *jsonTextView;
 @property (weak) IBOutlet ACEView *displayView;
 
+
+@property (weak) IBOutlet NSButton *startButton;
+
+@property (weak) IBOutlet NSButton *deleteButton;
+
+@property (weak) IBOutlet NSButton *plistButton;
+
+@property (weak) IBOutlet NSButton *xmlButton;
+
 @property (assign, nonatomic) BOOL onceTime;
 
 @end
@@ -31,6 +40,12 @@
     /** 这个很重要,不然竖直的英文引号会自动变为中文的弯引号,导致字符串解析错误 */
     _jsonTextView.automaticQuoteSubstitutionEnabled = NO;
     _jsonTextView.font = [NSFont systemFontOfSize:18];
+    
+    _startButton.toolTip = @"begin";
+    _deleteButton.toolTip = @"empty text";
+    _plistButton.toolTip = @"import plist file";
+    _xmlButton.toolTip = @"import xml file";
+
 }
 - (void)viewWillAppear{
      [self.displayView setReadOnly:YES];
