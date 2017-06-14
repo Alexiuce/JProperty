@@ -5,5 +5,4 @@ target 'JProperty' do
   # use_frameworks!
 
     pod 'ACEView', :git => 'https://github.com/mmattozzi/ACEView.git', :submodules => true
-
 end

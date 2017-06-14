@@ -742,7 +742,7 @@ and also,you can select a plist file to be converted to property,</string>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" tag="100" translatesAutoresizingMaskIntoConstraints="NO" id="veN-Rz-aBD">
-                                            <rect key="frame" x="40" y="10" width="16" height="16"/>
+                                            <rect key="frame" x="82" y="10" width="16" height="16"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="delete" imagePosition="only" alignment="center" state="on" imageScaling="proportionallyDown" inset="2" id="zkN-Fo-GgA">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -753,7 +753,7 @@ and also,you can select a plist file to be converted to property,</string>
                                             </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uVC-pF-EZR">
-                                            <rect key="frame" x="108" y="10" width="16" height="16"/>
+                                            <rect key="frame" x="148" y="10" width="16" height="16"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="import" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="SgZ-5T-8mG">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -764,20 +764,23 @@ and also,you can select a plist file to be converted to property,</string>
                                             </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jzO-kB-WIw">
-                                            <rect key="frame" x="263" y="10" width="16" height="16"/>
+                                            <rect key="frame" x="207" y="10" width="16" height="16"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="xml" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="CyS-bI-8nV">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                         </button>
-                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8qf-C8-Hsx">
-                                            <rect key="frame" x="186" y="10" width="16" height="16"/>
+                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4ni-hm-8hu">
+                                            <rect key="frame" x="20" y="10" width="16" height="16"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="number" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="FaF-h2-WPx">
+                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="start" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="A11-WH-FR7">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="jsonClick:" target="XfG-lQ-9wD" id="yy8-2i-G9n"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </view>
@@ -797,53 +800,30 @@ and also,you can select a plist file to be converted to property,</string>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eXl-YY-VGd">
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="cCd-ba-N6w" customClass="ACEView">
                                 <rect key="frame" x="359" y="18" width="561" height="534"/>
-                                <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="U8n-Sg-dzr">
-                                    <rect key="frame" x="1" y="1" width="559" height="532"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <textView editable="NO" importsGraphics="NO" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="4lA-1q-JZ0">
-                                            <rect key="frame" x="0.0" y="0.0" width="559" height="532"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
-                                            <size key="minSize" width="559" height="532"/>
-                                            <size key="maxSize" width="561" height="10000000"/>
-                                            <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                        </textView>
-                                    </subviews>
-                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                </clipView>
-                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="gAS-QO-gwD">
-                                    <rect key="frame" x="-100" y="-100" width="87" height="18"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </scroller>
-                                <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="lHy-Yi-oS6">
-                                    <rect key="frame" x="544" y="1" width="16" height="532"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </scroller>
-                            </scrollView>
+                            </customView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="Cj3-Td-iSW" firstAttribute="width" secondItem="m2S-Jp-Qdl" secondAttribute="width" multiplier="0.39" id="08Q-yd-QMT"/>
                             <constraint firstAttribute="bottom" secondItem="Y3B-FC-Q0U" secondAttribute="bottom" constant="1" id="2nB-FI-nHF"/>
-                            <constraint firstItem="Y3B-FC-Q0U" firstAttribute="top" secondItem="eXl-YY-VGd" secondAttribute="bottom" id="6lb-ci-M2q"/>
                             <constraint firstItem="Cj3-Td-iSW" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="6pm-BQ-VhS"/>
+                            <constraint firstItem="Y3B-FC-Q0U" firstAttribute="top" secondItem="cCd-ba-N6w" secondAttribute="bottom" id="I45-cw-Ymr"/>
                             <constraint firstItem="OwS-qv-Tta" firstAttribute="leading" secondItem="Cj3-Td-iSW" secondAttribute="trailing" id="NSe-8O-Lq1"/>
-                            <constraint firstAttribute="trailing" secondItem="eXl-YY-VGd" secondAttribute="trailing" id="RKN-Vf-99o"/>
+                            <constraint firstAttribute="trailing" secondItem="cCd-ba-N6w" secondAttribute="trailing" id="QdH-dQ-DVV"/>
+                            <constraint firstItem="cCd-ba-N6w" firstAttribute="leading" secondItem="Cj3-Td-iSW" secondAttribute="trailing" id="Trw-sE-HNr"/>
                             <constraint firstItem="OwS-qv-Tta" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="UM2-rS-7vl"/>
                             <constraint firstAttribute="trailing" secondItem="OwS-qv-Tta" secondAttribute="trailing" id="Vh8-p7-OCc"/>
-                            <constraint firstItem="eXl-YY-VGd" firstAttribute="top" secondItem="OwS-qv-Tta" secondAttribute="bottom" id="XS4-qJ-dSx"/>
                             <constraint firstItem="Y3B-FC-Q0U" firstAttribute="top" secondItem="Cj3-Td-iSW" secondAttribute="bottom" id="gGr-q1-VHR"/>
                             <constraint firstAttribute="trailing" secondItem="Y3B-FC-Q0U" secondAttribute="trailing" id="he5-mQ-OYt"/>
                             <constraint firstItem="Y3B-FC-Q0U" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="7" id="kUu-67-A2W"/>
-                            <constraint firstItem="eXl-YY-VGd" firstAttribute="leading" secondItem="Cj3-Td-iSW" secondAttribute="trailing" id="uLk-8P-XdN"/>
+                            <constraint firstItem="cCd-ba-N6w" firstAttribute="top" secondItem="OwS-qv-Tta" secondAttribute="bottom" id="klA-cZ-GhI"/>
                             <constraint firstItem="Cj3-Td-iSW" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="ycm-Fz-2bs"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="displayView" destination="cCd-ba-N6w" id="ec7-2P-RqE"/>
                         <outlet property="jsonTextView" destination="chn-Le-2tY" id="OPp-WH-qtX"/>
-                        <outlet property="propertyTextView" destination="4lA-1q-JZ0" id="COP-av-Att"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -854,7 +834,7 @@ and also,you can select a plist file to be converted to property,</string>
     <resources>
         <image name="delete" width="30" height="30"/>
         <image name="import" width="30" height="30"/>
-        <image name="number" width="30" height="30"/>
+        <image name="start" width="30" height="30"/>
         <image name="xml" width="30" height="30"/>
     </resources>
 </document>

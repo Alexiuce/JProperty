@@ -9,14 +9,14 @@
 #import "ViewController.h"
 #import "DJProgressHUD.h"
 #import "NSString+XCDictionary.h"
+#import <ACEView.h>
 
 
 
 @interface ViewController ()<NSTextViewDelegate>
 
 @property (unsafe_unretained) IBOutlet NSTextView *jsonTextView;
-@property (unsafe_unretained) IBOutlet NSTextView *propertyTextView;
-@property (weak) IBOutlet NSButton *jsonButton;
+@property (weak) IBOutlet ACEView *displayView;
 
 @property (assign, nonatomic) BOOL onceTime;
 
@@ -27,16 +27,18 @@
 @implementation ViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    _jsonButton.enabled =  _jsonTextView.string.length;
+    [super viewDidLoad]; 
     /** 这个很重要,不然竖直的英文引号会自动变为中文的弯引号,导致字符串解析错误 */
     _jsonTextView.automaticQuoteSubstitutionEnabled = NO;
-    _propertyTextView.automaticQuoteSubstitutionEnabled = NO;
-    _jsonTextView.delegate = self;
     _jsonTextView.font = [NSFont systemFontOfSize:18];
-    _propertyTextView.font = _jsonTextView.font;
 }
-
+- (void)viewWillAppear{
+     [self.displayView setReadOnly:YES];
+    [self.displayView setMode:ACEModeJSON];
+    [self.displayView setTheme:ACEThemeSolarizedDark];
+    
+    [self.displayView setShowInvisibles:NO];
+}
 
 #pragma mark - JSON 转换Property 事件
 - (IBAction)jsonClick:(NSButton *)sender {
@@ -52,17 +54,13 @@
         if (result != NSModalResponseOK) {return ;}
         NSURL *element = panel.URLs.firstObject;
         NSDictionary *plistDict = [NSDictionary dictionaryWithContentsOfURL:element];
-        NSString *text =  plistDict == nil ? @"@property (nonatomic, strong) NSArray *plistArray" : [NSString xc_propertyStingInDictioary:plistDict];
-        [_propertyTextView.textStorage setAttributedString:[NSString xc_propertyAttributedString:text]];
+//        NSString *text =  plistDict == nil ? @"@property (nonatomic, strong) NSArray *plistArray" : [NSString xc_propertyStingInDictioary:plistDict];
+//        [self.displayView setString:text];
+        NSData *jsdata = [NSJSONSerialization dataWithJSONObject:plistDict options:NSJSONWritingPrettyPrinted error:nil];
+        NSString *jt = [[NSString alloc]initWithData:jsdata encoding:NSUTF8StringEncoding];
+        [self.displayView setString:jt];
+//        [_propertyTextView.textStorage setAttributedString:[NSString xc_propertyAttributedString:text]];
     }];
-}
-
-
-#pragma mark - NSTextViewDelegate
-- (void)textDidChange:(NSNotification *)notification{
-    NSTextView *textView = notification.object;
-    if (textView != _jsonTextView) {return;}
-    _jsonButton.enabled = textView.string.length;
 }
 #pragma mark - 自定义方法
 - (void)checkJsonText:(NSString *)json{
@@ -99,25 +97,26 @@
         }
         return;
     }
-//       _propertyTextView.string
+    
     NSString *text = [NSString xc_propertyStingInDictioary:jsonDict];
-    
-    [_propertyTextView.textStorage setAttributedString:[NSString xc_propertyAttributedString:text]];
-    
-//    [_propertyTextView insertText:[NSString xc_propertyAttributedString:text]];
-//    _propertyTextView.attributedString = [NSString xc_propertyAttributedString:text];
+    NSLog(@"text %@",text);
+    if ([NSJSONSerialization isValidJSONObject:jsonDict]) {
+        NSData *jsdata = [NSJSONSerialization dataWithJSONObject:jsonDict options:NSJSONWritingPrettyPrinted error:&error];
+        
+        NSString *jt = [[NSString alloc]initWithData:jsdata encoding:NSUTF8StringEncoding];
+        [self.displayView setString:jt];
+    }
     _onceTime = 0;
 }
 /** 清空内容 */
 - (IBAction)emptyJSON:(NSButton *)sender {
-    /** 在stroyBoard 中,设置了清楚JSON 按钮的tag值为100 */
-    NSTextView *textView = sender.tag == 100 ? _jsonTextView : _propertyTextView;
-    textView.string = @"";
+    [self.displayView setString:@""];
 }
+
 /** copy内容到系统剪切板 */
 - (IBAction)copyText:(NSButton *)sender {
      /** 在stroyBoard 中,设置了COPY JSON 按钮的tag值为200 */
-   NSTextView *textView = sender.tag == 200 ? _jsonTextView : _propertyTextView;
+    NSTextView *textView =  _jsonTextView ;
     /** 如果内容为空,直接返回 */
     if (textView.string == nil || textView.string.length == 0) { return;}
     /** 清楚剪切板之前的内容 */
