@@ -28,6 +28,8 @@
 @property (weak) IBOutlet NSButton *xmlButton;
 
 @property (assign, nonatomic) BOOL onceTime;
+/** 底部提示信息 */
+@property (weak) IBOutlet NSTextField *infoTextField;
 
 @end
 
@@ -102,12 +104,7 @@
             _onceTime = 1;
             [self checkJsonText:csting];
         }else{
-            DJProgressHUD *hud = [DJProgressHUD instance];
-            hud.indicatorSize = CGSizeZero;
-            [DJProgressHUD showStatus:@"JSON 内容格式有误,请检查确认~" FromView:self.view];
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.35 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [DJProgressHUD dismiss];
-            });
+            self.infoTextField.stringValue = error.localizedDescription;
             _onceTime = 0;
         }
         return;
@@ -117,9 +114,10 @@
     NSLog(@"text %@",text);
     if ([NSJSONSerialization isValidJSONObject:jsonDict]) {
         NSData *jsdata = [NSJSONSerialization dataWithJSONObject:jsonDict options:NSJSONWritingPrettyPrinted error:&error];
-        
         NSString *jt = [[NSString alloc]initWithData:jsdata encoding:NSUTF8StringEncoding];
+        [self.displayView setMode:ACEModeJSON];
         [self.displayView setString:jt];
+        self.infoTextField.stringValue = @"";
     }
     _onceTime = 0;
 }
@@ -127,6 +125,32 @@
 - (IBAction)emptyJSON:(NSButton *)sender {
     [self.displayView setString:@""];
 }
+/** 打开导入的xml文件 */
+- (IBAction)openXml:(id)sender {
+    NSOpenPanel* panel = [NSOpenPanel openPanel];
+    panel.allowsMultipleSelection = NO;     // 禁止多选
+    panel.allowedFileTypes = @[@"xml"];   // 设置文件类型
+    panel.directoryURL = [NSURL URLWithString:NSHomeDirectory()];           // 设置默认打开路径
+    [panel beginSheetModalForWindow:self.view.window completionHandler:^(NSInteger result) {
+        if (result != NSModalResponseOK) {return ;}
+        NSURL *element = panel.URLs.firstObject;
+        NSData *xmlData = [NSData dataWithContentsOfURL:element];
+        NSError *error = nil;
+        NSXMLDocument *xmlDocument = [[NSXMLDocument alloc]initWithData:xmlData options:NSXMLNodePreserveAll error:&error];
+        if (error) {
+            self.infoTextField.stringValue = error.localizedDescription;
+            return;}
+        self.infoTextField.stringValue = @"";
+        [self.displayView setMode:ACEModeXML];
+        [self.displayView setString:[xmlDocument XMLStringWithOptions:NSXMLNodePrettyPrint]];
+        
+        //        [_propertyTextView.textStorage setAttributedString:[NSString xc_propertyAttributedString:text]];
+    }];
+}
+
+
+
+
 
 /** copy内容到系统剪切板 */
 - (IBAction)copyText:(NSButton *)sender {
