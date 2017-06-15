@@ -45,8 +45,8 @@
     
     _startButton.toolTip = @"begin";
     _deleteButton.toolTip = @"empty text";
-    _plistButton.toolTip = @"import plist file";
-    _xmlButton.toolTip = @"import xml file";
+    _plistButton.toolTip = @"open plist file";
+    _xmlButton.toolTip = @"open xml file";
 
 }
 - (void)viewWillAppear{
