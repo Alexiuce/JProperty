@@ -10,7 +10,7 @@
 
 @interface AppDelegate ()
 
-@property (nonatomic, strong) NSWindow *mainWindow;
+
 
 
 @end
@@ -18,7 +18,6 @@
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    self.mainWindow = NSApp.keyWindow;
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {

@@ -18,6 +18,7 @@
 		F20F60A81E67CF3B00567219 /* DJProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = F20F60A31E67CF3B00567219 /* DJProgressHUD.m */; };
 		F20F60A91E67CF3B00567219 /* DJProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = F20F60A51E67CF3B00567219 /* DJProgressIndicator.m */; };
 		F298945B1ED5243900324736 /* NSString+XCDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = F298945A1ED5243900324736 /* NSString+XCDictionary.m */; };
+		F2B2B1651EF22C7E009DFDA2 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B2B1641EF22C7E009DFDA2 /* MainWindowController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,8 @@
 		F20F60A51E67CF3B00567219 /* DJProgressIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJProgressIndicator.m; sourceTree = "<group>"; };
 		F29894591ED5243900324736 /* NSString+XCDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+XCDictionary.h"; sourceTree = "<group>"; };
 		F298945A1ED5243900324736 /* NSString+XCDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+XCDictionary.m"; sourceTree = "<group>"; };
+		F2B2B1631EF22C7E009DFDA2 /* MainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainWindowController.h; sourceTree = "<group>"; };
+		F2B2B1641EF22C7E009DFDA2 /* MainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainWindowController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +106,8 @@
 				F20F609D1E67CF3B00567219 /* DJProgressHUD */,
 				F20F60891E67A4BF00567219 /* AppDelegate.h */,
 				F20F608A1E67A4BF00567219 /* AppDelegate.m */,
+				F2B2B1631EF22C7E009DFDA2 /* MainWindowController.h */,
+				F2B2B1641EF22C7E009DFDA2 /* MainWindowController.m */,
 				F20F608F1E67A4BF00567219 /* ViewController.h */,
 				F20F60901E67A4BF00567219 /* ViewController.m */,
 				F20F60921E67A4BF00567219 /* Assets.xcassets */,
@@ -278,6 +283,7 @@
 				F20F60911E67A4BF00567219 /* ViewController.m in Sources */,
 				F20F608E1E67A4BF00567219 /* main.m in Sources */,
 				F20F60A81E67CF3B00567219 /* DJProgressHUD.m in Sources */,
+				F2B2B1651EF22C7E009DFDA2 /* MainWindowController.m in Sources */,
 				F298945B1ED5243900324736 /* NSString+XCDictionary.m in Sources */,
 				F20F608B1E67A4BF00567219 /* AppDelegate.m in Sources */,
 			);
