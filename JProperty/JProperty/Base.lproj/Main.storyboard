@@ -770,15 +770,12 @@ and also,you can select a plist file to be converted to property,</string>
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
-                                            <connections>
-                                                <action selector="openXml:" target="XfG-lQ-9wD" id="0CM-eM-1hu"/>
-                                            </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4ni-hm-8hu">
-                                            <rect key="frame" x="20" y="10" width="16" height="16"/>
+                                            <rect key="frame" x="20" y="12" width="16" height="13"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="start" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="A11-WH-FR7">
-                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                             <connections>
@@ -799,7 +796,7 @@ and also,you can select a plist file to be converted to property,</string>
                                 </constraints>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" placeholderString="ready" id="SlG-De-z7y">
                                     <font key="font" metaFont="system"/>
-                                    <color key="textColor" red="1" green="0.30568870739999998" blue="0.2324624636" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
@@ -827,7 +824,6 @@ and also,you can select a plist file to be converted to property,</string>
                     <connections>
                         <outlet property="deleteButton" destination="veN-Rz-aBD" id="Nuv-G9-geZ"/>
                         <outlet property="displayView" destination="cCd-ba-N6w" id="ec7-2P-RqE"/>
-                        <outlet property="infoTextField" destination="Y3B-FC-Q0U" id="D2C-hs-o1x"/>
                         <outlet property="jsonTextView" destination="chn-Le-2tY" id="OPp-WH-qtX"/>
                         <outlet property="plistButton" destination="uVC-pF-EZR" id="9kg-3d-G3z"/>
                         <outlet property="startButton" destination="4ni-hm-8hu" id="NZ3-lJ-k0z"/>

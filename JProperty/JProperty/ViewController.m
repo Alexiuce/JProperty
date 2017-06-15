@@ -104,6 +104,7 @@
             _onceTime = 1;
             [self checkJsonText:csting];
         }else{
+            [self emptyJSON:nil];
             self.infoTextField.stringValue = error.localizedDescription;
             _onceTime = 0;
         }
@@ -138,6 +139,7 @@
         NSError *error = nil;
         NSXMLDocument *xmlDocument = [[NSXMLDocument alloc]initWithData:xmlData options:NSXMLNodePreserveAll error:&error];
         if (error) {
+            [self emptyJSON:nil];
             self.infoTextField.stringValue = error.localizedDescription;
             return;}
         self.infoTextField.stringValue = @"";
