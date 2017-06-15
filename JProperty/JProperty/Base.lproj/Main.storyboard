@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12120"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="box content view" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -688,53 +687,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="920" height="587"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" horizontalScrollElasticity="none" verticalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="Cj3-Td-iSW">
-                                <rect key="frame" x="0.0" y="18" width="359" height="569"/>
-                                <clipView key="contentView" id="X09-tg-z6h">
-                                    <rect key="frame" x="1" y="1" width="357" height="567"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <textView importsGraphics="NO" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="chn-Le-2tY">
-                                            <rect key="frame" x="0.0" y="0.0" width="357" height="567"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <size key="minSize" width="357" height="567"/>
-                                            <size key="maxSize" width="918" height="10000000"/>
-                                            <attributedString key="textStorage">
-                                                <fragment>
-                                                    <string key="content">the content should be JSON format,such as :
-</string>
-                                                    <attributes>
-                                                        <color key="NSColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <font key="NSFont" size="12" name="Helvetica"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                    </attributes>
-                                                </fragment>
-                                                <fragment>
-                                                    <string key="content">{"name":"alex","job":"Mac OSX developer"}
-and also,you can select a plist file to be converted to property,</string>
-                                                    <attributes>
-                                                        <color key="NSColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <font key="NSFont" size="12" name="Helvetica"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
-                                                    </attributes>
-                                                </fragment>
-                                            </attributedString>
-                                            <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                        </textView>
-                                    </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </clipView>
-                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="lPb-Nf-90Z">
-                                    <rect key="frame" x="-100" y="-100" width="87" height="18"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </scroller>
-                                <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="Fpy-Q1-ZQ3">
-                                    <rect key="frame" x="342" y="1" width="16" height="567"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </scroller>
-                            </scrollView>
                             <box boxType="custom" borderWidth="0.0" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="OwS-qv-Tta">
                                 <rect key="frame" x="359" y="552" width="561" height="35"/>
                                 <view key="contentView" id="UnJ-Og-71C">
@@ -788,7 +740,8 @@ and also,you can select a plist file to be converted to property,</string>
                                     </subviews>
                                 </view>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="Ihc-Fc-aKk"/>
+                                    <constraint firstAttribute="height" constant="35" id="hb9-6L-y7y"/>
+                                    <constraint firstAttribute="width" constant="561" id="pIm-mF-yns"/>
                                 </constraints>
                                 <color key="fillColor" red="0.47490218299999998" green="0.90924235200000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </box>
@@ -806,29 +759,31 @@ and also,you can select a plist file to be converted to property,</string>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="cCd-ba-N6w" customClass="ACEView">
                                 <rect key="frame" x="359" y="18" width="561" height="534"/>
                             </customView>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="ip1-Dp-ywh" customClass="ACEView">
+                                <rect key="frame" x="0.0" y="18" width="359" height="569"/>
+                            </customView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="Cj3-Td-iSW" firstAttribute="width" secondItem="m2S-Jp-Qdl" secondAttribute="width" multiplier="0.39" id="08Q-yd-QMT"/>
                             <constraint firstAttribute="bottom" secondItem="Y3B-FC-Q0U" secondAttribute="bottom" constant="1" id="2nB-FI-nHF"/>
-                            <constraint firstItem="Cj3-Td-iSW" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="6pm-BQ-VhS"/>
-                            <constraint firstItem="Y3B-FC-Q0U" firstAttribute="top" secondItem="cCd-ba-N6w" secondAttribute="bottom" id="I45-cw-Ymr"/>
-                            <constraint firstItem="OwS-qv-Tta" firstAttribute="leading" secondItem="Cj3-Td-iSW" secondAttribute="trailing" id="NSe-8O-Lq1"/>
-                            <constraint firstAttribute="trailing" secondItem="cCd-ba-N6w" secondAttribute="trailing" id="QdH-dQ-DVV"/>
-                            <constraint firstItem="cCd-ba-N6w" firstAttribute="leading" secondItem="Cj3-Td-iSW" secondAttribute="trailing" id="Trw-sE-HNr"/>
-                            <constraint firstItem="OwS-qv-Tta" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="UM2-rS-7vl"/>
-                            <constraint firstAttribute="trailing" secondItem="OwS-qv-Tta" secondAttribute="trailing" id="Vh8-p7-OCc"/>
-                            <constraint firstItem="Y3B-FC-Q0U" firstAttribute="top" secondItem="Cj3-Td-iSW" secondAttribute="bottom" id="gGr-q1-VHR"/>
+                            <constraint firstItem="Y3B-FC-Q0U" firstAttribute="top" secondItem="ip1-Dp-ywh" secondAttribute="bottom" id="BEm-sW-YDq"/>
+                            <constraint firstAttribute="trailing" secondItem="OwS-qv-Tta" secondAttribute="trailing" id="K48-fV-HBu"/>
+                            <constraint firstItem="ip1-Dp-ywh" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="RLx-vs-mme"/>
+                            <constraint firstItem="cCd-ba-N6w" firstAttribute="leading" secondItem="ip1-Dp-ywh" secondAttribute="trailing" id="ZUc-im-y88"/>
+                            <constraint firstItem="Y3B-FC-Q0U" firstAttribute="top" secondItem="cCd-ba-N6w" secondAttribute="bottom" id="frl-ex-Ver"/>
                             <constraint firstAttribute="trailing" secondItem="Y3B-FC-Q0U" secondAttribute="trailing" id="he5-mQ-OYt"/>
+                            <constraint firstItem="cCd-ba-N6w" firstAttribute="leading" secondItem="UnJ-Og-71C" secondAttribute="leading" id="ik1-rN-7h3"/>
                             <constraint firstItem="Y3B-FC-Q0U" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="7" id="kUu-67-A2W"/>
-                            <constraint firstItem="cCd-ba-N6w" firstAttribute="top" secondItem="OwS-qv-Tta" secondAttribute="bottom" id="klA-cZ-GhI"/>
-                            <constraint firstItem="Cj3-Td-iSW" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="ycm-Fz-2bs"/>
+                            <constraint firstItem="cCd-ba-N6w" firstAttribute="top" secondItem="OwS-qv-Tta" secondAttribute="bottom" id="kdH-Fc-v5S"/>
+                            <constraint firstAttribute="trailing" secondItem="cCd-ba-N6w" secondAttribute="trailing" id="ovU-v7-IUL"/>
+                            <constraint firstItem="ip1-Dp-ywh" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="rx2-0y-7mo"/>
+                            <constraint firstItem="OwS-qv-Tta" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="uEa-r0-bkN"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="deleteButton" destination="veN-Rz-aBD" id="Nuv-G9-geZ"/>
                         <outlet property="displayView" destination="cCd-ba-N6w" id="ec7-2P-RqE"/>
                         <outlet property="infoTextField" destination="Y3B-FC-Q0U" id="abh-un-Deo"/>
-                        <outlet property="jsonTextView" destination="chn-Le-2tY" id="OPp-WH-qtX"/>
+                        <outlet property="jsonTextView" destination="ip1-Dp-ywh" id="qQf-Xz-ubA"/>
                         <outlet property="plistButton" destination="uVC-pF-EZR" id="9kg-3d-G3z"/>
                         <outlet property="startButton" destination="4ni-hm-8hu" id="NZ3-lJ-k0z"/>
                         <outlet property="xmlButton" destination="jzO-kB-WIw" id="WvL-Ge-ZPf"/>

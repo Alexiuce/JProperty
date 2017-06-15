@@ -15,7 +15,7 @@
 
 @interface ViewController ()<NSTextViewDelegate>
 
-@property (unsafe_unretained) IBOutlet NSTextView *jsonTextView;
+@property (unsafe_unretained) IBOutlet ACEView *jsonTextView;
 @property (weak) IBOutlet ACEView *displayView;
 
 
@@ -40,9 +40,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad]; 
     /** 这个很重要,不然竖直的英文引号会自动变为中文的弯引号,导致字符串解析错误 */
-    _jsonTextView.automaticQuoteSubstitutionEnabled = NO;
-    _jsonTextView.font = [NSFont systemFontOfSize:18];
-    
+//    _jsonTextView.automaticQuoteSubstitutionEnabled = NO;
+//    _jsonTextView.font = [NSFont systemFontOfSize:18];
     _startButton.toolTip = @"begin";
     _deleteButton.toolTip = @"empty text";
     _plistButton.toolTip = @"open plist file";
@@ -50,12 +49,21 @@
 
 }
 - (void)viewWillAppear{
-     [self.displayView setReadOnly:YES];
-    [self.displayView setMode:ACEModeJSON];
-    [self.displayView setTheme:ACEThemeSolarizedDark];
-    
-    [self.displayView setShowInvisibles:NO];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.jsonTextView setMode:ACEModeJSON];
+        [self.jsonTextView setShowInvisibles: NO];
+        [self.jsonTextView setShowLineNumbers:NO];
+        [self.jsonTextView setShowGutter:NO];
+        [self.jsonTextView setString:@"the content should be JSON format,such as :\n{\"name\":\"alex\",\"job\":\"Mac OSX developer\"}\nplist/xml file be supported, also"];
+        
+        [self.displayView setReadOnly:YES];
+        [self.displayView setMode:ACEModeJSON];
+        [self.displayView setTheme:ACEThemeSolarizedDark];
+        [self.displayView setShowInvisibles:NO];
+    });
+
 }
+
 
 #pragma mark - JSON 转换Property 事件
 - (IBAction)jsonClick:(NSButton *)sender {
@@ -71,6 +79,8 @@
         if (result != NSModalResponseOK) {return ;}
         NSURL *element = panel.URLs.firstObject;
         NSDictionary *plistDict = [NSDictionary dictionaryWithContentsOfURL:element];
+        NSString *js = [NSString stringWithFormat:@"{\"filepath\":\"%@\"}",element.path];
+        [self.jsonTextView setString:js];
 //        NSString *text =  plistDict == nil ? @"@property (nonatomic, strong) NSArray *plistArray" : [NSString xc_propertyStingInDictioary:plistDict];
 //        [self.displayView setString:text];
         NSData *jsdata = [NSJSONSerialization dataWithJSONObject:plistDict options:NSJSONWritingPrettyPrinted error:nil];
@@ -138,6 +148,9 @@
         NSData *xmlData = [NSData dataWithContentsOfURL:element];
         NSError *error = nil;
         NSXMLDocument *xmlDocument = [[NSXMLDocument alloc]initWithData:xmlData options:NSXMLNodePreserveAll error:&error];
+        NSString *js = [NSString stringWithFormat:@"{\"filepath\":\"%@\"}",element.path];
+        [self.jsonTextView setString:js];
+        
         if (error) {
             [self emptyJSON:nil];
             self.infoTextField.stringValue = error.localizedDescription;
@@ -154,17 +167,17 @@
 
 
 
-/** copy内容到系统剪切板 */
-- (IBAction)copyText:(NSButton *)sender {
-     /** 在stroyBoard 中,设置了COPY JSON 按钮的tag值为200 */
-    NSTextView *textView =  _jsonTextView ;
-    /** 如果内容为空,直接返回 */
-    if (textView.string == nil || textView.string.length == 0) { return;}
-    /** 清楚剪切板之前的内容 */
-    [[NSPasteboard generalPasteboard] clearContents];
-    /** 保存新内容到剪切板 */
-    [[NSPasteboard generalPasteboard] setString:textView.string forType:NSStringPboardType];
-}
+///** copy内容到系统剪切板 */
+//- (IBAction)copyText:(NSButton *)sender {
+//     /** 在stroyBoard 中,设置了COPY JSON 按钮的tag值为200 */
+//    NSTextView *textView =  _jsonTextView ;
+//    /** 如果内容为空,直接返回 */
+//    if (textView.string == nil || textView.string.length == 0) { return;}
+//    /** 清楚剪切板之前的内容 */
+//    [[NSPasteboard generalPasteboard] clearContents];
+//    /** 保存新内容到剪切板 */
+//    [[NSPasteboard generalPasteboard] setString:textView.string forType:NSStringPboardType];
+//}
 
 
 @end
