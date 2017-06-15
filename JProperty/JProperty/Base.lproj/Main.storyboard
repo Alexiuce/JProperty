@@ -796,7 +796,7 @@ and also,you can select a plist file to be converted to property,</string>
                                 </constraints>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" placeholderString="ready" id="SlG-De-z7y">
                                     <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
@@ -824,6 +824,7 @@ and also,you can select a plist file to be converted to property,</string>
                     <connections>
                         <outlet property="deleteButton" destination="veN-Rz-aBD" id="Nuv-G9-geZ"/>
                         <outlet property="displayView" destination="cCd-ba-N6w" id="ec7-2P-RqE"/>
+                        <outlet property="infoTextField" destination="Y3B-FC-Q0U" id="abh-un-Deo"/>
                         <outlet property="jsonTextView" destination="chn-Le-2tY" id="OPp-WH-qtX"/>
                         <outlet property="plistButton" destination="uVC-pF-EZR" id="9kg-3d-G3z"/>
                         <outlet property="startButton" destination="4ni-hm-8hu" id="NZ3-lJ-k0z"/>
