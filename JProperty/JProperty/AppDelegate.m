@@ -10,7 +10,7 @@
 
 @interface AppDelegate ()
 
-
+@property (nonatomic, strong) NSWindow *mainWindow;
 
 
 @end
@@ -18,6 +18,7 @@
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+   
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
@@ -25,6 +26,20 @@
 }
 
 - (BOOL)applicationShouldHandleReopen:(NSApplication *)sender hasVisibleWindows:(BOOL)flag{
+   
     return !(flag || ([self.mainWindow makeKeyAndOrderFront:self],0));
 }
+
+- (NSWindow *)mainWindow{
+    if (_mainWindow == nil) {
+        for (NSWindow *main in NSApp.windows) {
+            if ([NSStringFromClass([main class]) isEqualToString:@"NSWindow"]) {
+                _mainWindow = main;
+                break;
+            }
+        }
+    }
+    return _mainWindow;
+}
+
 @end

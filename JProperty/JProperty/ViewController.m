@@ -13,7 +13,7 @@
 
 
 
-@interface ViewController ()<NSTextViewDelegate>
+@interface ViewController ()<NSTextViewDelegate,WebFrameLoadDelegate>
 
 @property (unsafe_unretained) IBOutlet ACEView *jsonTextView;
 @property (weak) IBOutlet ACEView *displayView;
@@ -46,14 +46,18 @@
     _deleteButton.toolTip = @"empty text";
     _plistButton.toolTip = @"open plist file";
     _xmlButton.toolTip = @"open xml file";
-
+   
 }
 - (void)viewWillAppear{
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.jsonTextView setMode:ACEModeJSON];
+    [super viewWillAppear];
+    static dispatch_once_t onceToken;
+    
+    
+    dispatch_once(&onceToken, ^{
         [self.jsonTextView setShowInvisibles: NO];
         [self.jsonTextView setShowLineNumbers:NO];
         [self.jsonTextView setShowGutter:NO];
+        [self.jsonTextView setMode:ACEModeJSON];
         [self.jsonTextView setString:@"the content should be JSON format,such as :\n{\"name\":\"alex\",\"job\":\"Mac OSX developer\"}\nplist/xml file be supported, also"];
         
         [self.displayView setReadOnly:YES];
@@ -61,7 +65,6 @@
         [self.displayView setTheme:ACEThemeSolarizedDark];
         [self.displayView setShowInvisibles:NO];
     });
-
 }
 
 
