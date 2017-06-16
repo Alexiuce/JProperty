@@ -38,7 +38,7 @@
 @implementation ViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad]; 
+    [super viewDidLoad];
     /** 这个很重要,不然竖直的英文引号会自动变为中文的弯引号,导致字符串解析错误 */
 //    _jsonTextView.automaticQuoteSubstitutionEnabled = NO;
 //    _jsonTextView.font = [NSFont systemFontOfSize:18];
@@ -46,27 +46,21 @@
     _deleteButton.toolTip = @"empty text";
     _plistButton.toolTip = @"open plist file";
     _xmlButton.toolTip = @"open xml file";
-   
-}
-- (void)viewWillAppear{
-    [super viewWillAppear];
-    static dispatch_once_t onceToken;
-    
-    
-    dispatch_once(&onceToken, ^{
-        [self.jsonTextView setShowInvisibles: NO];
-        [self.jsonTextView setShowLineNumbers:NO];
-        [self.jsonTextView setShowGutter:NO];
-        [self.jsonTextView setMode:ACEModeJSON];
-        [self.jsonTextView setString:@"the content should be JSON format,such as :\n{\"name\":\"alex\",\"job\":\"Mac OSX developer\"}\nplist/xml file be supported, also"];
-        
-        [self.displayView setReadOnly:YES];
-        [self.displayView setMode:ACEModeJSON];
-        [self.displayView setTheme:ACEThemeSolarizedDark];
-        [self.displayView setShowInvisibles:NO];
-    });
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(configACEView) name:NSApplicationDidFinishLaunchingNotification object:nil];
 }
 
+- (void)configACEView{
+    [self.jsonTextView setShowInvisibles: NO];
+    [self.jsonTextView setShowLineNumbers:NO];
+    [self.jsonTextView setShowGutter:NO];
+    [self.jsonTextView setMode:ACEModeJSON];
+    [self.jsonTextView setString:@"the content should be JSON format,such as :\n{\"name\":\"alex\",\"job\":\"Mac OSX developer\"}\nplist/xml file be supported, also"];
+    
+    [self.displayView setReadOnly:YES];
+    [self.displayView setMode:ACEModeJSON];
+    [self.displayView setTheme:ACEThemeSolarizedDark];
+    [self.displayView setShowInvisibles:NO];
+}
 
 #pragma mark - JSON 转换Property 事件
 - (IBAction)jsonClick:(NSButton *)sender {
@@ -167,7 +161,9 @@
 }
 
 
-
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:NSApplicationDidFinishLaunchingNotification object:nil];
+}
 
 
 ///** copy内容到系统剪切板 */

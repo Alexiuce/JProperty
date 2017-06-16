@@ -10,7 +10,7 @@
 
 @interface AppDelegate ()
 
-@property (nonatomic, strong) NSWindow *mainWindow;
+@property (nonatomic, strong)  NSWindow *mainWindow;
 
 
 @end
@@ -18,7 +18,7 @@
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-   
+    
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
