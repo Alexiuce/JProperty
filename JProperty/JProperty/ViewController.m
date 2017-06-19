@@ -118,8 +118,7 @@
         return;
     }
     
-    NSString *text = [NSString xc_propertyStingInDictioary:jsonDict];
-    NSLog(@"text %@",text);
+//    NSString *text = [NSString xc_propertyStingInDictioary:jsonDict];
     if ([NSJSONSerialization isValidJSONObject:jsonDict]) {
         NSData *jsdata = [NSJSONSerialization dataWithJSONObject:jsonDict options:NSJSONWritingPrettyPrinted error:&error];
         NSString *jt = [[NSString alloc]initWithData:jsdata encoding:NSUTF8StringEncoding];

@@ -18,7 +18,6 @@
 
 - (void)windowDidLoad {
     [super windowDidLoad];
-    NSLog(@"%s",__func__);
     self.status = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
     self.status.image = [NSImage imageNamed:@"statusImage"];
     self.status.target = self;
