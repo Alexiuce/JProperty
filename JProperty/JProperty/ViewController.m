@@ -46,6 +46,7 @@
     _deleteButton.toolTip = @"empty text";
     _plistButton.toolTip = @"open plist file";
     _xmlButton.toolTip = @"open xml file";
+    [self configACEView];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(configACEView) name:NSApplicationDidFinishLaunchingNotification object:nil];
 }
 
@@ -55,6 +56,8 @@
     [self.jsonTextView setShowGutter:NO];
     [self.jsonTextView setMode:ACEModeJSON];
     [self.jsonTextView setString:@"the content should be JSON format,such as :\n{\"name\":\"alex\",\"job\":\"Mac OSX developer\"}\nplist/xml file be supported, also"];
+    [self.jsonTextView setUseSoftWrap:YES];
+    
     
     [self.displayView setReadOnly:YES];
     [self.displayView setMode:ACEModeJSON];
